@@ -1,0 +1,67 @@
+{
+  "locked_strategy": "A",
+  "locked_before_test_labels": true,
+  "selection_rule": "Evidence Hit@3 trên 15 câu dev. Hòa thì Hit@1 dev, rồi số chunk ít hơn. Test không được dùng để đổi cấu hình.",
+  "dev_evidence_hit_at_3": {"A": "15/15", "B": "14/15", "C": "14/15"},
+  "dev_hit_at_1": {"A": "12/15", "B": "11/15", "C": "11/15"},
+  "locked_test_retrieval": {
+    "strategy": "A",
+    "hit_at_1": "3/5",
+    "evidence_hit_at_3": "4/5",
+    "miss_hit_at_3": "q16",
+    "miss_reason": "Hai đoạn bằng chứng của q16 nằm trên cùng trang 33 nhưng bị cắt sang hai cửa sổ 500 ký tự. Hạng 1 có câu vi phạm train-test, hạng 3 có tên development set. Không chunk nào chứa đủ cả hai."
+  },
+  "scorer": {
+    "who": "Trợ lý đọc chunk và đối chiếu rubric GUIDE.md giúp học viên.",
+    "method": "Đọc text top-3 và chunk chứa 10 trang nội dung đầu. Không lấy nhãn coherence hay grounding từ biến hit tự động.",
+    "bias": "Cùng trợ lý đã viết pipeline và bộ câu hỏi, nên nhãn không phải người chấm độc lập. Học viên nên đọc lại trước khi nộp."
+  },
+  "coherence": {
+    "positions": "10 page ID nội dung đầu, đã sắp xếp: 2–11. Chấm chunk đầu tiên của trang đó chứa đoạn mở đầu trang. Cùng vị trí cho A, B và C. C dùng đúng chunk của B.",
+    "scale": "0 = cắt giữa ý hoặc thiếu chủ thể nên không hiểu; 1 = hiểu một phần, thiếu ngữ cảnh; 2 = tự hiểu được và giữ trọn ý.",
+    "labels": [
+      {"page": 2, "A": 1, "B": 2, "C": 2, "reason": "A cắt cụt chữ ở câu hỏi cuối. B kết thúc trọn câu giới thiệu machine learning."},
+      {"page": 3, "A": 1, "B": 2, "C": 2, "reason": "A cắt giữa từ AlphaGo. B giữ trọn ví dụ AlphaGo."},
+      {"page": 4, "A": 1, "B": 1, "C": 1, "reason": "Cả hai mở bằng 'Test .' vì trang PDF đã ngắt câu Turing Test. B còn bỏ lửng mục '1 .'."},
+      {"page": 5, "A": 1, "B": 1, "C": 1, "reason": "Cả hai mở bằng 'chép.' từ câu trang trước. A còn cắt cuối trang."},
+      {"page": 6, "A": 1, "B": 2, "C": 2, "reason": "A cắt 'sử dụng th'. B kể trọn bước gán nhãn email và cập nhật đường thẳng."},
+      {"page": 7, "A": 1, "B": 2, "C": 2, "reason": "A cắt giữa 'khai thác'. B nói hết supervised, unsupervised và reinforcement."},
+      {"page": 8, "A": 1, "B": 2, "C": 2, "reason": "A cắt 'machine learning p'. B kết thúc trọn ví dụ học vẹt."},
+      {"page": 9, "A": 1, "B": 1, "C": 1, "reason": "Cả hai mở bằng 'đoán' thiếu chữ 'dự'. B kết luận trọn hơn nhưng câu đầu vẫn vỡ."},
+      {"page": 10, "A": 1, "B": 0, "C": 0, "reason": "A có định nghĩa supervised learning rồi cắt cuối câu. B chỉ còn heading 'Chương 1: Supervised Learning', 29 ký tự."},
+      {"page": 11, "A": 1, "B": 2, "C": 2, "reason": "A cắt 'có thể chu'. B giữ các định nghĩa observation, label và parameter."}
+    ],
+    "mean_over_2": {"A": 1.0, "B": 1.5, "C": 1.5},
+    "totals": {"A": "10/20", "B": "15/20", "C": "15/20"}
+  },
+  "metadata": {
+    "checked": "5 câu test x top-3 x 3 cấu hình = 45 bản ghi. Đối chiếu source, page, section với manifest và với footer trong chunk khi có.",
+    "correct_and_sufficient": "45/45",
+    "errors": [],
+    "filter_questions_in_test": ["q18", "q20"],
+    "top3_obeys_filter": {"A": "0/2", "B": "0/2", "C": "2/2"},
+    "filter_detail": {
+      "q18": {"required_section": "tinh_chinh_hyperparameter", "A": [13, 34, 15], "B": [34, 15, 15], "C": [34, 33, 33]},
+      "q20": {"required_section": "loss_function", "A": [40, 18, 18], "B": [40, 18, 18], "C": [40, 38, 39]}
+    },
+    "useful_field": "section giúp C loại trang 15 ở q18 và trang 18 ở q20.",
+    "limitation": "section gắn theo cả trang PDF. Chunk chỉ mang đuôi câu từ trang trước vẫn nhận section của trang mới. Section không vá được evidence bị cắt đôi như q16 ở cấu hình A."
+  },
+  "grounding": {
+    "scale": "0 = không có bằng chứng cho câu hỏi; 1 = có một phần nhưng thiếu điều kiện hoặc ngữ cảnh; 2 = đủ trả lời và truy được trang. Đây là chất lượng bằng chứng truy xuất, không phải độ đúng của câu trả lời LLM.",
+    "labels": [
+      {"id": "q16", "A": [1, 1, 1], "B": [2, 1, 1], "C": [2, 1, 1], "reason": "A tách lý do cấm và tên development set ra hai chunk. B và C để cả hai trong hạng 1."},
+      {"id": "q17", "A": [2, 0, 0], "B": [2, 0, 0], "C": [2, 0, 0], "reason": "Hạng 1 đủ điều kiện dùng k-fold. Hai hạng sau nói loss hoặc development set, không nói k-fold."},
+      {"id": "q18", "A": [1, 2, 0], "B": [2, 0, 0], "C": [2, 0, 0], "reason": "Hạng 1 của A là chia 80/20, thiếu tập phát triển. Hạng 2 của A và hạng 1 của B, C là tỉ lệ 8:1:1."},
+      {"id": "q19", "A": [2, 1, 0], "B": [2, 1, 0], "C": [2, 1, 0], "reason": "Hạng 1 có cả giá cổ phiếu và ảnh chân dung. Hạng 2 chỉ nói cách cho điểm regression/classification. Hạng 3 là ví dụ khác."},
+      {"id": "q20", "A": [2, 1, 1], "B": [2, 1, 0], "C": [2, 0, 0], "reason": "Hạng 1 đủ lý do đạo hàm không xác định. A còn để phần 0-1 loss ở hạng 2 và 3. C lọc đúng mục nhưng hai hạng sau không nói lý do không dùng 0-1 loss để train."}
+    ],
+    "counts": {
+      "A": {"0": 4, "1": 7, "2": 4},
+      "B": {"0": 6, "1": 4, "2": 5},
+      "C": {"0": 7, "1": 3, "2": 5}
+    },
+    "mean_over_2": {"A": 1.0, "B": 0.93, "C": 0.87},
+    "rank1_mean_over_2": {"A": 1.6, "B": 2.0, "C": 2.0}
+  }
+}

@@ -1,4 +1,4 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed_size,500,50,"document_id, source, page, section",none,"ollama embeddinggemma:latest; 768 chiều; cosine chính xác","Cửa sổ chồng 50 ký tự giữ evidence ở biên chunk tốt hơn cắt theo đoạn.","12/15","15/15","3/5","4/5","Embed A+B 13.49 giây, chi phí 0 USD. C dùng lại vector của B. Nạp lại vẫn 163 dòng, 163 chunk_id khác nhau. Kiểm tra top-3 ngày 2026-11-14: 3 kết quả."
+B,paragraph,800,0,"document_id, source, page, section",none,"ollama embeddinggemma:latest; 768 chiều; cosine chính xác","Cắt theo đoạn giữ trọn câu hơn A nên có thể tăng Hit@1 khi evidence nằm trong một đoạn.","11/15","14/15","5/5","5/5","Cùng lần embed 13.49 giây và chi phí 0 USD. Nạp lại vẫn 115 dòng, 115 chunk_id khác nhau. Kiểm tra top-3 ngày 2026-11-14: 3 kết quả."
+C,paragraph,800,0,"document_id, source, page, section","section khi câu hỏi có filter; câu không filter thì không lọc","ollama embeddinggemma:latest; 768 chiều; cosine chính xác","Cùng chunk và vector với B. Filter section chỉ đổi top-3 của câu có filter.","11/15","14/15","5/5","5/5","Không embed thêm. Nạp lại vẫn 115 dòng, 115 chunk_id khác nhau. Kiểm tra top-3 ngày 2026-11-14: 3 kết quả. Khác B ở q15, q18, q20."

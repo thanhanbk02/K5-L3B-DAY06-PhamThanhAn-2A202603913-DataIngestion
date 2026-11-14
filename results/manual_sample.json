@@ -1,0 +1,572 @@
+[
+  {
+    "id": "q16",
+    "strategy": "A",
+    "question": "Vì sao không được dùng test set để chọn hyperparameter, và tập nào được dùng thay vào đó?",
+    "gold_page": 33,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": false,
+        "text": "chọn một tập giá trị của các hyperparameter, huấn luyện để tìm ra một model rồi đo độ tốt của nó trên test set. Ta tiếp tục lặp lại quá trình này với nhiều tập giá trị hyperparameter khác nhau. Sau nhiều lần thử chọn như vậy, ta chọn tập giá trị nào cho độ sai sót thấp nhất trên test set. Cẩn thận! Khi dùng test set để xác định hyperparameter, ta đã vi phạm nguyên tắc train-test độc lập . Nói một cách đơn giản là ta đã sử dụng test set để huấn luyện model làm model \"đã thấy trước\" được những gì",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": false,
+        "text": "Tinh chỉnh các hyperparameter Khi bình thường hoá tham số xuất hiện trong hàm mục tiêu, vấn đề đặt ra là ta không nhất thiết phải đặt giá trị của hằng số bình thường hoá λ giống nhau cho mọi bài toán. Hơn nữa, ngoài λ , còn có nhiều hyperparameter khác ta cần phải lựa chọn (như bậc của đa thức). Làm sao để chọn được tập giá trị tối ưu cho các hyperparameter với từng bài toán? Development set Để tinh chỉnh các hyperparameter, ta có thể là như sau: chọn một tập giá trị của các hyperparameter, huấn",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": false,
+        "text": "uyện model làm model \"đã thấy trước\" được những gì mình sắp phải dự đoán. Để khắc phục điều này, ta cần đến một \"test set thứ hai\", chỉ chuyên dùng để tinh chỉnh các hyperparameter và không dùng để đưa thông báo cuối cùng về độ tốt của model. Ta gọi đấy là development set (tập phát triển). Development set cũng còn được gọi là validation set. Trong bài viết trước, vì chưa nhắc giới thiệu khái niệm development set nên định nghĩa early stopping của mình cũng đã vi phạm quy tắc train-test độc lập. C",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q17",
+    "strategy": "A",
+    "question": "Khi nào thì dùng k-fold cross validation?",
+    "gold_page": 34,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 34,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": true,
+        "text": "Trong nghiên cứu, tỉ lệ train:dev:test thường được dùng đó là 8:1:1. Tức là nếu có 100 điểm dữ liệu, thì lấy 80 điểm để huấn luyện, 10 điểm để phát triển, và 10 điểm để kiểm tra. k-fold cross-validation k-fold cross validation được sử dụng khi ta không có đủ dữ liệu để trích ra được một development set đủ lớn. Phương pháp này sẽ chia training set thành k phần. Sau đó, ta lần lượt sử dụng một phần làm development và k - 1 phần còn lại làm training set. Độ tốt của model (lúc phát triển) sẽ bằng tr",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 18,
+        "section": "objective_function",
+        "hit": false,
+        "text": "ng ngoại lệ này, ta chỉ cần model đoán \"khá\" chính xác trên train set mà thôi. Bù lại model sẽ tổng quát hơn và đoán chính xác hơn trên test set. Suy cho cùng, độ tốt trên test set mới là thứ ta quan tâm sau cùng. Thứ hai, trong phát biểu trên ta dùng cùng một loss function cho cả train và test. Đây là một trường hợp rất lý tưởng và hiếm gặp trong thực tiễn. Trong đa số trường hợp, loss function được sử dụng lúc train và lúc test không giống nhau . Kì lạ đúng không? Tại sao chúng ta \"dạy\" một đằ",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 18,
+        "section": "objective_function",
+        "hit": false,
+        "text": "1 loss. Đối với những hàm như vậy, nếu model đoán sai thì không biết sửa chữa theo hướng nào để tiến bộ hơn. Khi train, ta cần một loss function cho partial credit , tức là đúng tới đâu cho điểm tới đó và dự đoán thế nào cũng có điểm. Model có thể tận dụng điều này để thay đổi câu trả lời một chút xem điểm tăng hay giảm, dần dần tìm ra câu trả lời đúng. Một trong những loss function thường được sử dụng nhất là negative log-likelihood . Khi sử dụng loss function này, model của chúng ta thay vì đư",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q18",
+    "strategy": "A",
+    "question": "Với 100 điểm dữ liệu, mỗi phần được lấy bao nhiêu điểm?",
+    "gold_page": 34,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 13,
+        "section": "hai_goc_nhin",
+        "hit": false,
+        "text": "ự đúng đắn của một model bằng thực nghiệm . Cho dù không biết hình dạng của f ra sao, thì vẫn còn đó các cặp observation-label sinh ra từ hàm này. Ta sẽ đánh giá độ tốt của một model trên các dữ liệu thực tế này. Ví dụ, nếu nhận được 100 cặp observation-label, ta chỉ dùng khoảng 80 cặp để xây dựng ra f . Còn lại 20 cặp, ta giấu không cho model nhìn thấy lúc nó học. Sau khi model học từ 80 cặp dữ liệu, ta sẽ cho các observation của 20 cặp dữ liệu còn lại vào model để tạo ra các label dự đoán, rồi",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 34,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": true,
+        "text": "Trong nghiên cứu, tỉ lệ train:dev:test thường được dùng đó là 8:1:1. Tức là nếu có 100 điểm dữ liệu, thì lấy 80 điểm để huấn luyện, 10 điểm để phát triển, và 10 điểm để kiểm tra. k-fold cross-validation k-fold cross validation được sử dụng khi ta không có đủ dữ liệu để trích ra được một development set đủ lớn. Phương pháp này sẽ chia training set thành k phần. Sau đó, ta lần lượt sử dụng một phần làm development và k - 1 phần còn lại làm training set. Độ tốt của model (lúc phát triển) sẽ bằng tr",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 15,
+        "section": "hai_goc_nhin",
+        "hit": false,
+        "text": "Một trong những cách đơn giản nhất đó là đếm xem nó đoán sai bao nhiêu label thật trên test set. Ta giả sử model bị phạt 1 điểm với mỗi lần label dự đoán khác với label thật. Số điểm bị phạt trung bình được gọi là error rate (độ sai sót) của model. Error rate là một số thực trong đoạn [0, 1]. Theo ngôn ngữ toán học, error rate trên một test set D của model f được tính như sau: e = I { f ( x ) ≠ y } trong đó: ∣ D ∣ số lượng các cặp ( x , y ) của test set (kí hiệu |S| nghĩa là lực lượng của tập hợ",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q19",
+    "strategy": "A",
+    "question": "Sách minh họa regression và classification bằng ví dụ nào?",
+    "gold_page": 37,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 37,
+        "section": "loss_function",
+        "hit": true,
+        "text": "ược một bài toán regression . Ví dụ như ta cần tiên đoán giá cổ phiếu, giá xăng, giá vàng vào ngày mai. Khi y là một đại lượng rời rạc chỉ nhận giá trị trong một tập label hữu hạn rời rạc nào đó, ta được bài toán classification . Ví dụ, khi ta cần nhận dạng tên một người từ một tấm ảnh chân dung, cho dù có hàng tỉ cái tên trên thế giới thì tập hợp này vẫn là rời rạc hữu hạn. Vì thế, bài toán này vẫn được quy vào dạng classification. Để đơn giản các công thức, bài viết này chỉ đề cập đến binary c",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 37,
+        "section": "loss_function",
+        "hit": false,
+        "text": "inary classification, ta đều thiết kế để model f ( x ) trả về một số thực ∈ ( − ∞ , ∞ ) . Với regression, dĩ nhiên mang ý nghĩa là giá trị được dự đoán. Với binary classification, là điểm số thể hiện model ưa thích label nào hơn trong hai label. Nếu < 0 tức là model thích phương án -1 hơn và ngược lại, nếu ≥ 0 tức là model nghiêng về phương án +1 hơn. Giá trị tuyệt đối của thể hiện mức độ thích của model đối với lựa chọn của mình. D w ∣ D ∣ 1 ( x , y ) ∈ D ∑ ( w ) y ^ y ^ y ^ w w y ^ y ^ y ^ y ^",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 5,
+        "section": "machine_learning_la_gi",
+        "hit": false,
+        "text": "khái niệm. Một ví dụ đơn gỉan là phân loại thư rác (tam gíac) và thư bình thường (vuông). Chắc các bạn sẽ khó hình dung ra được làm thế nào để làm được điều đó. Đối với perceptron, điều này không khác gì với việc vẽ một đường thẳng trên mặt phẳng để phân chia hai tập điểm: Những điểm tam giác và vuông đại diện cho những email chúng ta đã biết nhãn trước. Chúng được dùng để \"huấn luyện\" (train) perceptron. Sau khi vẽ đường thẳng chia hai tập Machine learning là gì? 5",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q20",
+    "strategy": "A",
+    "question": "Vì sao 0-1 loss thường không được dùng để huấn luyện model?",
+    "gold_page": 40,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 40,
+        "section": "loss_function",
+        "hit": true,
+        "text": "0-1 loss: Hàm này rất đơn giản: trả về 1 nếu y ⋅ < 0 , trả về 0 nếu ngược lại. Việc này tương đương với việc đếm số câu trả lời sai của model. 0-1 loss thường chỉ được dùng để tính error rate của model, chứ không dùng để huấn luyện model vì đạo hàm của nó không xác định ở điểm 0. Perceptron loss: L ( , y ) = max ( 0 , − y ⋅ ) Ta thấy rằng hàm perceptron loss là một cách đơn giản nhất để sửa sao cho hàm g ở câu hỏi trong phần trước trở thành không âm (thỏa điều kiện của một hàm mát). Đối với perc",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 18,
+        "section": "objective_function",
+        "hit": false,
+        "text": ". Kì lạ đúng không? Tại sao chúng ta \"dạy\" một đằng, nhưng mà lại \"ra đề\" một nẻo? Evaluation function thường dùng thường rất khó để tối thiểu hóa bằng các phương pháp toán học (sẽ giải thích ngay sau phần này). Lý do khái quát là do các evaluation function này thường là tổng của của các loss function có dạng 0-1 loss , tức là chỉ trả về 0 hoặc 1 và phải trùng hoàn toàn với label thật thì mới nhận được 0. Error rate là một ví dụ điển hình của 0-1 loss. Đối với những hàm như vậy, nếu model đoán",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 18,
+        "section": "objective_function",
+        "hit": false,
+        "text": "1 loss. Đối với những hàm như vậy, nếu model đoán sai thì không biết sửa chữa theo hướng nào để tiến bộ hơn. Khi train, ta cần một loss function cho partial credit , tức là đúng tới đâu cho điểm tới đó và dự đoán thế nào cũng có điểm. Model có thể tận dụng điều này để thay đổi câu trả lời một chút xem điểm tăng hay giảm, dần dần tìm ra câu trả lời đúng. Một trong những loss function thường được sử dụng nhất là negative log-likelihood . Khi sử dụng loss function này, model của chúng ta thay vì đư",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q16",
+    "strategy": "B",
+    "question": "Vì sao không được dùng test set để chọn hyperparameter, và tập nào được dùng thay vào đó?",
+    "gold_page": 33,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": true,
+        "text": "Khi dùng test set để xác định hyperparameter, ta đã vi phạm nguyên tắc train-test độc lập . Nói một cách đơn giản là ta đã sử dụng test set để huấn luyện model làm model \"đã thấy trước\" được những gì mình sắp phải dự đoán. Để khắc phục điều này, ta cần đến một \"test set thứ hai\", chỉ chuyên dùng để tinh chỉnh các hyperparameter và không dùng để đưa thông báo cuối cùng về độ tốt của model. Ta gọi đấy là development set (tập phát triển). Development set cũng còn được gọi là validation set. Trong bài viết trước, vì chưa nhắc giới thiệu khái niệm development set nên định nghĩa early stopping của mình cũng đã vi phạm quy tắc train-test độc lập.",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": false,
+        "text": "Tinh chỉnh các hyperparameter Khi bình thường hoá tham số xuất hiện trong hàm mục tiêu, vấn đề đặt ra là ta không nhất thiết phải đặt giá trị của hằng số bình thường hoá λ giống nhau cho mọi bài toán. Hơn nữa, ngoài λ , còn có nhiều hyperparameter khác ta cần phải lựa chọn (như bậc của đa thức). Làm sao để chọn được tập giá trị tối ưu cho các hyperparameter với từng bài toán? Development set Để tinh chỉnh các hyperparameter, ta có thể là như sau: chọn một tập giá trị của các hyperparameter, huấn luyện để tìm ra một model rồi đo độ tốt của nó trên test set. Ta tiếp tục lặp lại quá trình này với nhiều tập giá trị hyperparameter khác nhau. Sau nhiều lần thử chọn như vậy, ta chọn tập giá trị nào cho độ sai sót thấp nhất trên test set. Cẩn thận!",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": false,
+        "text": "Cụ thể, vì thời điểm dừng huấn luyện phụ thuộc vào độ sai sót trên test set, mà model cuối cùng nhận được lại phụ thuộc vào thời điểm dừng huấn luyện, suy ra test set đã gián tiếp chỉ định model cuối cùng. Sau khi biết đến development set, để áp dụng early stopping một cách đúng đắn, thì ta chỉ việc thay learning curve trên test set bằng learning curve trên development set. Tinh chỉnh các hyperparameter 33",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q17",
+    "strategy": "B",
+    "question": "Khi nào thì dùng k-fold cross validation?",
+    "gold_page": 34,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 34,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": true,
+        "text": "Trong nghiên cứu, tỉ lệ train:dev:test thường được dùng đó là 8:1:1. Tức là nếu có 100 điểm dữ liệu, thì lấy 80 điểm để huấn luyện, 10 điểm để phát triển, và 10 điểm để kiểm tra. k-fold cross-validation k-fold cross validation được sử dụng khi ta không có đủ dữ liệu để trích ra được một development set đủ lớn. Phương pháp này sẽ chia training set thành k phần. Sau đó, ta lần lượt sử dụng một phần làm development và k - 1 phần còn lại làm training set. Độ tốt của model (lúc phát triển) sẽ bằng trung bình cộng độ tốt trên development set qua k lần huấn luyện đó. Tinh chỉnh các hyperparameter 34",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 18,
+        "section": "objective_function",
+        "hit": false,
+        "text": "Đây là một trường hợp rất lý tưởng và hiếm gặp trong thực tiễn. Trong đa số trường hợp, loss function được sử dụng lúc train và lúc test không giống nhau . Kì lạ đúng không? Tại sao chúng ta \"dạy\" một đằng, nhưng mà lại \"ra đề\" một nẻo? Evaluation function thường dùng thường rất khó để tối thiểu hóa bằng các phương pháp toán học (sẽ giải thích ngay sau phần này). Lý do khái quát là do các evaluation function này thường là tổng của của các loss function có dạng 0-1 loss , tức là chỉ trả về 0 hoặc 1 và phải trùng hoàn toàn với label thật thì mới nhận được 0. Error rate là một ví dụ điển hình của 0-1 loss. Đối với những hàm như vậy, nếu model đoán sai thì không biết sửa chữa theo hướng nào để tiến bộ hơn.",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": false,
+        "text": "Khi dùng test set để xác định hyperparameter, ta đã vi phạm nguyên tắc train-test độc lập . Nói một cách đơn giản là ta đã sử dụng test set để huấn luyện model làm model \"đã thấy trước\" được những gì mình sắp phải dự đoán. Để khắc phục điều này, ta cần đến một \"test set thứ hai\", chỉ chuyên dùng để tinh chỉnh các hyperparameter và không dùng để đưa thông báo cuối cùng về độ tốt của model. Ta gọi đấy là development set (tập phát triển). Development set cũng còn được gọi là validation set. Trong bài viết trước, vì chưa nhắc giới thiệu khái niệm development set nên định nghĩa early stopping của mình cũng đã vi phạm quy tắc train-test độc lập.",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q18",
+    "strategy": "B",
+    "question": "Với 100 điểm dữ liệu, mỗi phần được lấy bao nhiêu điểm?",
+    "gold_page": 34,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 34,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": true,
+        "text": "Trong nghiên cứu, tỉ lệ train:dev:test thường được dùng đó là 8:1:1. Tức là nếu có 100 điểm dữ liệu, thì lấy 80 điểm để huấn luyện, 10 điểm để phát triển, và 10 điểm để kiểm tra. k-fold cross-validation k-fold cross validation được sử dụng khi ta không có đủ dữ liệu để trích ra được một development set đủ lớn. Phương pháp này sẽ chia training set thành k phần. Sau đó, ta lần lượt sử dụng một phần làm development và k - 1 phần còn lại làm training set. Độ tốt của model (lúc phát triển) sẽ bằng trung bình cộng độ tốt trên development set qua k lần huấn luyện đó. Tinh chỉnh các hyperparameter 34",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 15,
+        "section": "hai_goc_nhin",
+        "hit": false,
+        "text": "Nếu đoán đúng hết tất cả cặp dữ liệu, ta đạt được error rate \"trong mơ\", 0%. Nhưng nên nhớ đấy là kết quả được đo trên một test set hữu hạn. Kết quả này chỉ đưa ra được một chặn trên và chặn dưới cho kết quả trên tập vô hạn (xem thêm về central limit theorem ). Nói cách khác, nếu tự nhiên có gửi đến một test set mới để đánh giá f , thì chưa chắc ta có thể lặp lại được error rate giống như trên test set cũ. Error rate được đánh giá trên test set càng lớn thì càng đáng tin cậy. Ta có thể định nghĩa độ tốt theo rất nhiều cách khác nữa. Tổng quát, độ tốt của model được xác định dựa trên giá trị của evaluation function trên test set: L ( f ) = L f ( x ) , y trong đó f là model được test, hàm L là một",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 15,
+        "section": "hai_goc_nhin",
+        "hit": false,
+        "text": "Một trong những cách đơn giản nhất đó là đếm xem nó đoán sai bao nhiêu label thật trên test set. Ta giả sử model bị phạt 1 điểm với mỗi lần label dự đoán khác với label thật. Số điểm bị phạt trung bình được gọi là error rate (độ sai sót) của model. Error rate là một số thực trong đoạn [0, 1]. Theo ngôn ngữ toán học, error rate trên một test set D của model f được tính như sau: e = I { f ( x ) ≠ y } trong đó: ∣ D ∣ số lượng các cặp ( x , y ) của test set (kí hiệu |S| nghĩa là lực lượng của tập hợp S). I { . } sẽ trả về 1 nếu logic trong dấu ngoặc nhọn là đúng, 0 nếu sai. Nếu lập trình, pseudocode sẽ như thế này: N = |D_{test}| error_rate = 0 for i = 0 .. N - 1 if (f(x[i]) != y[i]) error_rate += 1 error_rate = error_rate / N Error rate càng thấp, thì model càng tốt .",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q19",
+    "strategy": "B",
+    "question": "Sách minh họa regression và classification bằng ví dụ nào?",
+    "gold_page": 37,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 37,
+        "section": "loss_function",
+        "hit": true,
+        "text": "Để đơn giản, ta xét bài các bài toán mà y có thể biểu diễn được bằng một con số. Khi y là một số thực dao động trong khoảng ( − ∞ , ∞ ) , ta được một bài toán regression . Ví dụ như ta cần tiên đoán giá cổ phiếu, giá xăng, giá vàng vào ngày mai. Khi y là một đại lượng rời rạc chỉ nhận giá trị trong một tập label hữu hạn rời rạc nào đó, ta được bài toán classification . Ví dụ, khi ta cần nhận dạng tên một người từ một tấm ảnh chân dung, cho dù có hàng tỉ cái tên trên thế giới thì tập hợp này vẫn là rời rạc hữu hạn. Vì thế, bài toán này vẫn được quy vào dạng classification. Để đơn giản các công thức, bài viết này chỉ đề cập đến binary classification , tức là khi tập các label chỉ có hai phần tử (\"có\" hoặc \"không\", \"đúng\" hoặc \"sai\", \"positive\" hoặc \"negative\", ...).",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 37,
+        "section": "loss_function",
+        "hit": false,
+        "text": "Để tiện cho việc tính toán, trong binary classification, ta chuyển đổi tập label thành tập { − 1 , + 1 } (-1 nghĩa là \"không\", +1 nghĩa là \"có\"). Lưu ý rằng ta đang nói đến label thật y chứ không phải label dự đoán = f ( x ) . Thông thường, đối với cả regression và binary classification, ta đều thiết kế để model f ( x ) trả về một số thực ∈ ( − ∞ , ∞ ) . Với regression, dĩ nhiên mang ý nghĩa là giá trị được dự đoán. Với binary classification, là điểm số thể hiện model ưa thích label nào hơn trong hai label. Nếu < 0 tức là model thích phương án -1 hơn và ngược lại, nếu ≥ 0 tức là model nghiêng về phương án +1 hơn. Giá trị tuyệt đối của thể hiện mức độ thích của model đối với lựa chọn của mình. D w ∣ D ∣ 1 ( x , y ) ∈ D ∑ ( w ) y ^ y ^ y ^ w w y ^ y ^ y ^ y ^ y ^ y ^ Loss function 37",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 12,
+        "section": "hai_goc_nhin",
+        "hit": false,
+        "text": "Sau đó, thiên nhiên đem giấu hàm f đi và chỉ chừa lại các cặp observation-label ( x , y ) cho chúng ta nhìn thấy. Nhiệm vụ của chúng ta là khôi phục lại được hàm f bằng một model f một cách chính xác nhất có thể. Ta gọi đây là trò chơi supervised learning . Mọi bài toán supervised learning đều có thể được định nghĩa theo cách này. Ví dụ trong bài toán phân loại văn bản, observation x có thể là một văn bản, label y là chủ đề của văn bản đó, còn f là một chuyên gia đọc văn bản và tìm ra chủ đề của chúng. Mục tiêu của machine learning là tạo ra một chương trình máy tính f để làm công việc này tốt như là chuyên gia f kia. Q1 : Giả sử bằng cách nào đó ta biết được rằng x = ( x , x ) (một vector 2 chiều) và y = f ( x ) = a x + b x + c .",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q20",
+    "strategy": "B",
+    "question": "Vì sao 0-1 loss thường không được dùng để huấn luyện model?",
+    "gold_page": 40,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 40,
+        "section": "loss_function",
+        "hit": true,
+        "text": "0-1 loss: Hàm này rất đơn giản: trả về 1 nếu y ⋅ < 0 , trả về 0 nếu ngược lại. Việc này tương đương với việc đếm số câu trả lời sai của model. 0-1 loss thường chỉ được dùng để tính error rate của model, chứ không dùng để huấn luyện model vì đạo hàm của nó không xác định ở điểm 0. Perceptron loss: L ( , y ) = max ( 0 , − y ⋅ ) Ta thấy rằng hàm perceptron loss là một cách đơn giản nhất để sửa sao cho hàm g ở câu hỏi trong phần trước trở thành không âm (thỏa điều kiện của một hàm mát). Đối với perceptron loss, khi model đoán đúng ( cùng dấu với y ), − y ⋅ sẽ mang dấu âm. Tức là, khi đó L ( , y ) = max ( 0 , n e g a t i v e ) = 0 . Nói cách khác, perceptron loss không phân biệt gì giữa các dự đoán đúng. Chúng đều không bị phạt.",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 18,
+        "section": "objective_function",
+        "hit": false,
+        "text": "Đây là một trường hợp rất lý tưởng và hiếm gặp trong thực tiễn. Trong đa số trường hợp, loss function được sử dụng lúc train và lúc test không giống nhau . Kì lạ đúng không? Tại sao chúng ta \"dạy\" một đằng, nhưng mà lại \"ra đề\" một nẻo? Evaluation function thường dùng thường rất khó để tối thiểu hóa bằng các phương pháp toán học (sẽ giải thích ngay sau phần này). Lý do khái quát là do các evaluation function này thường là tổng của của các loss function có dạng 0-1 loss , tức là chỉ trả về 0 hoặc 1 và phải trùng hoàn toàn với label thật thì mới nhận được 0. Error rate là một ví dụ điển hình của 0-1 loss. Đối với những hàm như vậy, nếu model đoán sai thì không biết sửa chữa theo hướng nào để tiến bộ hơn.",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 18,
+        "section": "objective_function",
+        "hit": false,
+        "text": "Khi train, ta cần một loss function cho partial credit , tức là đúng tới đâu cho điểm tới đó và dự đoán thế nào cũng có điểm. Model có thể tận dụng điều này để thay đổi câu trả lời một chút xem điểm tăng hay giảm, dần dần tìm ra câu trả lời đúng. Một trong những loss function thường được sử dụng nhất là negative log-likelihood . Khi sử dụng loss function này, model của chúng ta thay vì đưa ra một đáp án cụ thể, thì sẽ đưa ra xác suất observation x mang label y , tức là f ( x ) ≡ P ( y ∣ x ) . Negative log-likelihood được định nghĩa như sau: L ( f ( x ) , y ) ≡ − lo g P ( y ∣ x ) Ta thấy là nếu model đưa xác suất 100% cho label thật y, thì loss function sẽ có giá trị − lo g 1 = 0 và model không bị phạt.",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q16",
+    "strategy": "C",
+    "question": "Vì sao không được dùng test set để chọn hyperparameter, và tập nào được dùng thay vào đó?",
+    "gold_page": 33,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": true,
+        "text": "Khi dùng test set để xác định hyperparameter, ta đã vi phạm nguyên tắc train-test độc lập . Nói một cách đơn giản là ta đã sử dụng test set để huấn luyện model làm model \"đã thấy trước\" được những gì mình sắp phải dự đoán. Để khắc phục điều này, ta cần đến một \"test set thứ hai\", chỉ chuyên dùng để tinh chỉnh các hyperparameter và không dùng để đưa thông báo cuối cùng về độ tốt của model. Ta gọi đấy là development set (tập phát triển). Development set cũng còn được gọi là validation set. Trong bài viết trước, vì chưa nhắc giới thiệu khái niệm development set nên định nghĩa early stopping của mình cũng đã vi phạm quy tắc train-test độc lập.",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": false,
+        "text": "Tinh chỉnh các hyperparameter Khi bình thường hoá tham số xuất hiện trong hàm mục tiêu, vấn đề đặt ra là ta không nhất thiết phải đặt giá trị của hằng số bình thường hoá λ giống nhau cho mọi bài toán. Hơn nữa, ngoài λ , còn có nhiều hyperparameter khác ta cần phải lựa chọn (như bậc của đa thức). Làm sao để chọn được tập giá trị tối ưu cho các hyperparameter với từng bài toán? Development set Để tinh chỉnh các hyperparameter, ta có thể là như sau: chọn một tập giá trị của các hyperparameter, huấn luyện để tìm ra một model rồi đo độ tốt của nó trên test set. Ta tiếp tục lặp lại quá trình này với nhiều tập giá trị hyperparameter khác nhau. Sau nhiều lần thử chọn như vậy, ta chọn tập giá trị nào cho độ sai sót thấp nhất trên test set. Cẩn thận!",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": false,
+        "text": "Cụ thể, vì thời điểm dừng huấn luyện phụ thuộc vào độ sai sót trên test set, mà model cuối cùng nhận được lại phụ thuộc vào thời điểm dừng huấn luyện, suy ra test set đã gián tiếp chỉ định model cuối cùng. Sau khi biết đến development set, để áp dụng early stopping một cách đúng đắn, thì ta chỉ việc thay learning curve trên test set bằng learning curve trên development set. Tinh chỉnh các hyperparameter 33",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q17",
+    "strategy": "C",
+    "question": "Khi nào thì dùng k-fold cross validation?",
+    "gold_page": 34,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 34,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": true,
+        "text": "Trong nghiên cứu, tỉ lệ train:dev:test thường được dùng đó là 8:1:1. Tức là nếu có 100 điểm dữ liệu, thì lấy 80 điểm để huấn luyện, 10 điểm để phát triển, và 10 điểm để kiểm tra. k-fold cross-validation k-fold cross validation được sử dụng khi ta không có đủ dữ liệu để trích ra được một development set đủ lớn. Phương pháp này sẽ chia training set thành k phần. Sau đó, ta lần lượt sử dụng một phần làm development và k - 1 phần còn lại làm training set. Độ tốt của model (lúc phát triển) sẽ bằng trung bình cộng độ tốt trên development set qua k lần huấn luyện đó. Tinh chỉnh các hyperparameter 34",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 18,
+        "section": "objective_function",
+        "hit": false,
+        "text": "Đây là một trường hợp rất lý tưởng và hiếm gặp trong thực tiễn. Trong đa số trường hợp, loss function được sử dụng lúc train và lúc test không giống nhau . Kì lạ đúng không? Tại sao chúng ta \"dạy\" một đằng, nhưng mà lại \"ra đề\" một nẻo? Evaluation function thường dùng thường rất khó để tối thiểu hóa bằng các phương pháp toán học (sẽ giải thích ngay sau phần này). Lý do khái quát là do các evaluation function này thường là tổng của của các loss function có dạng 0-1 loss , tức là chỉ trả về 0 hoặc 1 và phải trùng hoàn toàn với label thật thì mới nhận được 0. Error rate là một ví dụ điển hình của 0-1 loss. Đối với những hàm như vậy, nếu model đoán sai thì không biết sửa chữa theo hướng nào để tiến bộ hơn.",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": false,
+        "text": "Khi dùng test set để xác định hyperparameter, ta đã vi phạm nguyên tắc train-test độc lập . Nói một cách đơn giản là ta đã sử dụng test set để huấn luyện model làm model \"đã thấy trước\" được những gì mình sắp phải dự đoán. Để khắc phục điều này, ta cần đến một \"test set thứ hai\", chỉ chuyên dùng để tinh chỉnh các hyperparameter và không dùng để đưa thông báo cuối cùng về độ tốt của model. Ta gọi đấy là development set (tập phát triển). Development set cũng còn được gọi là validation set. Trong bài viết trước, vì chưa nhắc giới thiệu khái niệm development set nên định nghĩa early stopping của mình cũng đã vi phạm quy tắc train-test độc lập.",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q18",
+    "strategy": "C",
+    "question": "Với 100 điểm dữ liệu, mỗi phần được lấy bao nhiêu điểm?",
+    "gold_page": 34,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 34,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": true,
+        "text": "Trong nghiên cứu, tỉ lệ train:dev:test thường được dùng đó là 8:1:1. Tức là nếu có 100 điểm dữ liệu, thì lấy 80 điểm để huấn luyện, 10 điểm để phát triển, và 10 điểm để kiểm tra. k-fold cross-validation k-fold cross validation được sử dụng khi ta không có đủ dữ liệu để trích ra được một development set đủ lớn. Phương pháp này sẽ chia training set thành k phần. Sau đó, ta lần lượt sử dụng một phần làm development và k - 1 phần còn lại làm training set. Độ tốt của model (lúc phát triển) sẽ bằng trung bình cộng độ tốt trên development set qua k lần huấn luyện đó. Tinh chỉnh các hyperparameter 34",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": false,
+        "text": "Cụ thể, vì thời điểm dừng huấn luyện phụ thuộc vào độ sai sót trên test set, mà model cuối cùng nhận được lại phụ thuộc vào thời điểm dừng huấn luyện, suy ra test set đã gián tiếp chỉ định model cuối cùng. Sau khi biết đến development set, để áp dụng early stopping một cách đúng đắn, thì ta chỉ việc thay learning curve trên test set bằng learning curve trên development set. Tinh chỉnh các hyperparameter 33",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 33,
+        "section": "tinh_chinh_hyperparameter",
+        "hit": false,
+        "text": "Tinh chỉnh các hyperparameter Khi bình thường hoá tham số xuất hiện trong hàm mục tiêu, vấn đề đặt ra là ta không nhất thiết phải đặt giá trị của hằng số bình thường hoá λ giống nhau cho mọi bài toán. Hơn nữa, ngoài λ , còn có nhiều hyperparameter khác ta cần phải lựa chọn (như bậc của đa thức). Làm sao để chọn được tập giá trị tối ưu cho các hyperparameter với từng bài toán? Development set Để tinh chỉnh các hyperparameter, ta có thể là như sau: chọn một tập giá trị của các hyperparameter, huấn luyện để tìm ra một model rồi đo độ tốt của nó trên test set. Ta tiếp tục lặp lại quá trình này với nhiều tập giá trị hyperparameter khác nhau. Sau nhiều lần thử chọn như vậy, ta chọn tập giá trị nào cho độ sai sót thấp nhất trên test set. Cẩn thận!",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q19",
+    "strategy": "C",
+    "question": "Sách minh họa regression và classification bằng ví dụ nào?",
+    "gold_page": 37,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 37,
+        "section": "loss_function",
+        "hit": true,
+        "text": "Để đơn giản, ta xét bài các bài toán mà y có thể biểu diễn được bằng một con số. Khi y là một số thực dao động trong khoảng ( − ∞ , ∞ ) , ta được một bài toán regression . Ví dụ như ta cần tiên đoán giá cổ phiếu, giá xăng, giá vàng vào ngày mai. Khi y là một đại lượng rời rạc chỉ nhận giá trị trong một tập label hữu hạn rời rạc nào đó, ta được bài toán classification . Ví dụ, khi ta cần nhận dạng tên một người từ một tấm ảnh chân dung, cho dù có hàng tỉ cái tên trên thế giới thì tập hợp này vẫn là rời rạc hữu hạn. Vì thế, bài toán này vẫn được quy vào dạng classification. Để đơn giản các công thức, bài viết này chỉ đề cập đến binary classification , tức là khi tập các label chỉ có hai phần tử (\"có\" hoặc \"không\", \"đúng\" hoặc \"sai\", \"positive\" hoặc \"negative\", ...).",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 37,
+        "section": "loss_function",
+        "hit": false,
+        "text": "Để tiện cho việc tính toán, trong binary classification, ta chuyển đổi tập label thành tập { − 1 , + 1 } (-1 nghĩa là \"không\", +1 nghĩa là \"có\"). Lưu ý rằng ta đang nói đến label thật y chứ không phải label dự đoán = f ( x ) . Thông thường, đối với cả regression và binary classification, ta đều thiết kế để model f ( x ) trả về một số thực ∈ ( − ∞ , ∞ ) . Với regression, dĩ nhiên mang ý nghĩa là giá trị được dự đoán. Với binary classification, là điểm số thể hiện model ưa thích label nào hơn trong hai label. Nếu < 0 tức là model thích phương án -1 hơn và ngược lại, nếu ≥ 0 tức là model nghiêng về phương án +1 hơn. Giá trị tuyệt đối của thể hiện mức độ thích của model đối với lựa chọn của mình. D w ∣ D ∣ 1 ( x , y ) ∈ D ∑ ( w ) y ^ y ^ y ^ w w y ^ y ^ y ^ y ^ y ^ y ^ Loss function 37",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 12,
+        "section": "hai_goc_nhin",
+        "hit": false,
+        "text": "Sau đó, thiên nhiên đem giấu hàm f đi và chỉ chừa lại các cặp observation-label ( x , y ) cho chúng ta nhìn thấy. Nhiệm vụ của chúng ta là khôi phục lại được hàm f bằng một model f một cách chính xác nhất có thể. Ta gọi đây là trò chơi supervised learning . Mọi bài toán supervised learning đều có thể được định nghĩa theo cách này. Ví dụ trong bài toán phân loại văn bản, observation x có thể là một văn bản, label y là chủ đề của văn bản đó, còn f là một chuyên gia đọc văn bản và tìm ra chủ đề của chúng. Mục tiêu của machine learning là tạo ra một chương trình máy tính f để làm công việc này tốt như là chuyên gia f kia. Q1 : Giả sử bằng cách nào đó ta biết được rằng x = ( x , x ) (một vector 2 chiều) và y = f ( x ) = a x + b x + c .",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  },
+  {
+    "id": "q20",
+    "strategy": "C",
+    "question": "Vì sao 0-1 loss thường không được dùng để huấn luyện model?",
+    "gold_page": 40,
+    "top3": [
+      {
+        "rank": 1,
+        "page": 40,
+        "section": "loss_function",
+        "hit": true,
+        "text": "0-1 loss: Hàm này rất đơn giản: trả về 1 nếu y ⋅ < 0 , trả về 0 nếu ngược lại. Việc này tương đương với việc đếm số câu trả lời sai của model. 0-1 loss thường chỉ được dùng để tính error rate của model, chứ không dùng để huấn luyện model vì đạo hàm của nó không xác định ở điểm 0. Perceptron loss: L ( , y ) = max ( 0 , − y ⋅ ) Ta thấy rằng hàm perceptron loss là một cách đơn giản nhất để sửa sao cho hàm g ở câu hỏi trong phần trước trở thành không âm (thỏa điều kiện của một hàm mát). Đối với perceptron loss, khi model đoán đúng ( cùng dấu với y ), − y ⋅ sẽ mang dấu âm. Tức là, khi đó L ( , y ) = max ( 0 , n e g a t i v e ) = 0 . Nói cách khác, perceptron loss không phân biệt gì giữa các dự đoán đúng. Chúng đều không bị phạt.",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 2,
+        "page": 38,
+        "section": "loss_function",
+        "hit": false,
+        "text": "Square loss có thể được sử dụng cho cả regression và classification, nhưng thực tế thì nó thường được dùng cho regression hơn. Đối với binary classification, ta có một cách tiếp cận khác để xây dựng loss function. Nhắc lại là đối với dạng bài này, thì nếu model trả về < 0 tức là thích đáp án -1 hơn, trả về ≥ 0 tức là thích đáp án +1 hơn. Một cách rất tự nhiên, ta thấy rằng loss function của binary classification cần phải đạt được một số tiêu chí sau: 1 . Ta cần phải phạt model nhiều hơn khi dự đoán sai hơn là khi dự đoán đúng. Vì thế, tiêu chí đầu tiên của ta là khi model dự đoán sai ( y khác dấu với ), loss function phải trả về giá trị lớn hơn so với khi model dự đoán đúng ( y cùng dấu với ). 2 . Nếu có hai đáp án và đều cùng dấu (hoặc khác dấu) với y thì ta nên phạt đáp án nào nhiều hơn?",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      },
+      {
+        "rank": 3,
+        "page": 39,
+        "section": "loss_function",
+        "hit": false,
+        "text": "trường hợp cùng dấu với y , phương án được thích là phương án đúng, do đó, model càng thích thì ta phải càng khuyến khích và phạt ít đi. Cũng với lập luận như vậy, nếu khác dấu với y , vì phương án được thích là phương án sai nên model càng thích thì ta phải càng phạt nặng để model không tái phạm nữa. Một cách tổng quát, đối với binary classification thì các loss function thường có dạng như sau: L ( , y ) = f ( y ⋅ ) trong đó f là một hàm không âm và không tăng. Câu hỏi 1 : Giải thích tại sao hàm g ( , y ) = − y ⋅ lại thỏa mãn hai tiêu chí đã nêu ở trên. Câu hỏi 2 : Giải thích tại sao hàm g ( , y ) = − y ⋅ lại không thỏa điều kiện của một loss function (lưu ý tính chất của loss function và f ). Các loss function cơ bản dành cho binary classification y ^ y ^ y ^ y ^ y ^ y ^ y ^ y ^",
+        "metadata_correct": null,
+        "coherence_0_to_2": null,
+        "grounding_0_to_2": null
+      }
+    ]
+  }
+]

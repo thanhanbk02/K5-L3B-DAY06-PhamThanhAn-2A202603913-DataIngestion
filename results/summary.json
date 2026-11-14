@@ -1,0 +1,70 @@
+{
+  "model": "embeddinggemma:latest",
+  "provider": "ollama",
+  "dimensions": 768,
+  "cost_usd": 0,
+  "embed_seconds": 13.49,
+  "elapsed_seconds": 31.82,
+  "search": "exact cosine similarity in pgvector (1 - cosine distance)",
+  "content_pages": 40,
+  "reload": {
+    "A": 163,
+    "B": 115,
+    "C": 115
+  },
+  "selection_rule": "Chọn cấu hình theo Evidence Hit@3 trên dev. Hòa thì lấy Hit@1 dev cao hơn, rồi tới cấu hình ít chunk hơn. Không dùng test để đổi chunk, filter hay câu hỏi.",
+  "selected_strategy": "A",
+  "summary": {
+    "by_strategy": {
+      "A": {
+        "dev": {
+          "n": 15,
+          "hit_at_1": "12/15",
+          "hit_at_1_count": 12,
+          "evidence_hit_at_3": "15/15",
+          "evidence_hit_at_3_count": 15
+        },
+        "test": {
+          "n": 5,
+          "hit_at_1": "3/5",
+          "hit_at_1_count": 3,
+          "evidence_hit_at_3": "4/5",
+          "evidence_hit_at_3_count": 4
+        }
+      },
+      "B": {
+        "dev": {
+          "n": 15,
+          "hit_at_1": "11/15",
+          "hit_at_1_count": 11,
+          "evidence_hit_at_3": "14/15",
+          "evidence_hit_at_3_count": 14
+        },
+        "test": {
+          "n": 5,
+          "hit_at_1": "5/5",
+          "hit_at_1_count": 5,
+          "evidence_hit_at_3": "5/5",
+          "evidence_hit_at_3_count": 5
+        }
+      },
+      "C": {
+        "dev": {
+          "n": 15,
+          "hit_at_1": "11/15",
+          "hit_at_1_count": 11,
+          "evidence_hit_at_3": "14/15",
+          "evidence_hit_at_3_count": 14
+        },
+        "test": {
+          "n": 5,
+          "hit_at_1": "5/5",
+          "hit_at_1_count": 5,
+          "evidence_hit_at_3": "5/5",
+          "evidence_hit_at_3_count": 5
+        }
+      }
+    }
+  },
+  "manual_labels": "Coherence, metadata audit, and grounding are not inferred from string match."
+}

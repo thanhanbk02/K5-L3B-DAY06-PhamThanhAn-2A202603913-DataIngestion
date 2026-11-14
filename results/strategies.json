@@ -1,0 +1,40 @@
+{
+  "selection_rule": "Chọn cấu hình theo Evidence Hit@3 trên dev. Hòa thì lấy Hit@1 dev cao hơn, rồi tới cấu hình ít chunk hơn. Không dùng test để đổi chunk, filter hay câu hỏi.",
+  "strategies": {
+    "A": {
+      "chunking": "fixed_size",
+      "size": 500,
+      "overlap": 50,
+      "filter": false,
+      "chunks": 163,
+      "char_stats": {
+        "min": 53,
+        "max": 500,
+        "mean": 452
+      }
+    },
+    "B": {
+      "chunking": "paragraph",
+      "max_size": 800,
+      "filter": false,
+      "chunks": 115,
+      "char_stats": {
+        "min": 16,
+        "max": 800,
+        "mean": 587
+      }
+    },
+    "C": {
+      "chunking": "paragraph",
+      "max_size": 800,
+      "filter": "section, only when the question supplies one",
+      "same_chunks_as": "B",
+      "chunks": 115,
+      "char_stats": {
+        "min": 16,
+        "max": 800,
+        "mean": 587
+      }
+    }
+  }
+}

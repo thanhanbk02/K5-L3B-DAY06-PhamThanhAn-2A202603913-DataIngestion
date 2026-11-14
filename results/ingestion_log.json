@@ -1,0 +1,336 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "section": null,
+      "counted": false,
+      "extraction_status": "ok",
+      "extracted_chars": 334,
+      "extraction_error": null
+    },
+    {
+      "page": 2,
+      "section": "loi_tua",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1111,
+      "extraction_error": null
+    },
+    {
+      "page": 3,
+      "section": "machine_learning_la_gi",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2624,
+      "extraction_error": null
+    },
+    {
+      "page": 4,
+      "section": "machine_learning_la_gi",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2672,
+      "extraction_error": null
+    },
+    {
+      "page": 5,
+      "section": "machine_learning_la_gi",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1820,
+      "extraction_error": null
+    },
+    {
+      "page": 6,
+      "section": "machine_learning_la_gi",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 914,
+      "extraction_error": null
+    },
+    {
+      "page": 7,
+      "section": "machine_learning_la_gi",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 893,
+      "extraction_error": null
+    },
+    {
+      "page": 8,
+      "section": "machine_learning_la_gi",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2033,
+      "extraction_error": null
+    },
+    {
+      "page": 9,
+      "section": "machine_learning_la_gi",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 882,
+      "extraction_error": null
+    },
+    {
+      "page": 10,
+      "section": "supervised_learning",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1971,
+      "extraction_error": null
+    },
+    {
+      "page": 11,
+      "section": "cac_khai_niem_co_ban",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1585,
+      "extraction_error": null
+    },
+    {
+      "page": 12,
+      "section": "hai_goc_nhin",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1930,
+      "extraction_error": null
+    },
+    {
+      "page": 13,
+      "section": "hai_goc_nhin",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1765,
+      "extraction_error": null
+    },
+    {
+      "page": 14,
+      "section": "hai_goc_nhin",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1356,
+      "extraction_error": null
+    },
+    {
+      "page": 15,
+      "section": "hai_goc_nhin",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1831,
+      "extraction_error": null
+    },
+    {
+      "page": 16,
+      "section": "hai_goc_nhin",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 953,
+      "extraction_error": null
+    },
+    {
+      "page": 17,
+      "section": "objective_function",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2513,
+      "extraction_error": null
+    },
+    {
+      "page": 18,
+      "section": "objective_function",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2582,
+      "extraction_error": null
+    },
+    {
+      "page": 19,
+      "section": "objective_function",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2246,
+      "extraction_error": null
+    },
+    {
+      "page": 20,
+      "section": "objective_function",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1025,
+      "extraction_error": null
+    },
+    {
+      "page": 21,
+      "section": "overfitting",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1846,
+      "extraction_error": null
+    },
+    {
+      "page": 22,
+      "section": "overfitting",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1463,
+      "extraction_error": null
+    },
+    {
+      "page": 23,
+      "section": "overfitting",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 898,
+      "extraction_error": null
+    },
+    {
+      "page": 24,
+      "section": "overfitting",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2086,
+      "extraction_error": null
+    },
+    {
+      "page": 25,
+      "section": "overfitting",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2138,
+      "extraction_error": null
+    },
+    {
+      "page": 26,
+      "section": "overfitting",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1169,
+      "extraction_error": null
+    },
+    {
+      "page": 27,
+      "section": "overfitting",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1274,
+      "extraction_error": null
+    },
+    {
+      "page": 28,
+      "section": "regularized_loss_minimization",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1832,
+      "extraction_error": null
+    },
+    {
+      "page": 29,
+      "section": "regularized_loss_minimization",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2430,
+      "extraction_error": null
+    },
+    {
+      "page": 30,
+      "section": "regularized_loss_minimization",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2727,
+      "extraction_error": null
+    },
+    {
+      "page": 31,
+      "section": "regularized_loss_minimization",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2364,
+      "extraction_error": null
+    },
+    {
+      "page": 32,
+      "section": "regularized_loss_minimization",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 634,
+      "extraction_error": null
+    },
+    {
+      "page": 33,
+      "section": "tinh_chinh_hyperparameter",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1808,
+      "extraction_error": null
+    },
+    {
+      "page": 34,
+      "section": "tinh_chinh_hyperparameter",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 599,
+      "extraction_error": null
+    },
+    {
+      "page": 35,
+      "section": "thuat_toan_tong_quat",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 601,
+      "extraction_error": null
+    },
+    {
+      "page": 36,
+      "section": "loss_function",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2246,
+      "extraction_error": null
+    },
+    {
+      "page": 37,
+      "section": "loss_function",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2325,
+      "extraction_error": null
+    },
+    {
+      "page": 38,
+      "section": "loss_function",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1957,
+      "extraction_error": null
+    },
+    {
+      "page": 39,
+      "section": "loss_function",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 810,
+      "extraction_error": null
+    },
+    {
+      "page": 40,
+      "section": "loss_function",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 2034,
+      "extraction_error": null
+    },
+    {
+      "page": 41,
+      "section": "loss_function",
+      "counted": true,
+      "extraction_status": "ok",
+      "extracted_chars": 1637,
+      "extraction_error": null
+    }
+  ],
+  "status_counts": {
+    "ok": 41
+  },
+  "empty_or_error_pages": []
+}

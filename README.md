@@ -8,6 +8,34 @@ Biến tài liệu thành kho tri thức có thể truy xuất cho AI agent, r�
 |---|---|---|
 | Tối thiểu **30 trang nội dung** | Tối thiểu **3 cấu hình** | Tối thiểu **20 câu hỏi** |
 
+## Cách chạy bài nộp
+
+Pipeline, câu hỏi và kết quả của bài làm nằm ở các đường dẫn sau.
+
+| Thành phần | Đường dẫn |
+|---|---|
+| PDF | `starter/data/Machine_learning_co_ban.pdf` |
+| Manifest | `data/manifest.json` |
+| Câu hỏi | `benchmark/questions.json` |
+| Mã nguồn | `starter/src/` |
+| Trace và nhãn | `results/` |
+| Báo cáo | `report/individual/2A202603913_PhamThanhAn.md` |
+
+Cần Docker Desktop, Python 3.11–3.14 và Ollama đang chạy model `embeddinggemma:latest`. Trong PowerShell:
+
+```powershell
+cd starter
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+Copy-Item .env.example .env
+docker compose -p day6_student_starter up -d --wait
+python scripts/check_setup.py
+python -m src.run
+```
+
+`python -m src.run` đọc PDF, embed bằng Ollama, lưu ba index A/B/C vào PostgreSQL và ghi `results/`. Embedding local, chi phí 0 USD. Không commit file `.env`.
+
 ## Bắt đầu nhanh
 
 Dùng [starter PostgreSQL + pgvector](starter/README.md) để dựng database và hoàn thiện các hàm TODO, hoặc tự chọn vector store tương đương. Starter chỉ là khung: **bạn tự hiện thực pipeline và benchmark**.
