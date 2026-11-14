@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo truy xuất — Machine Learning: mì, súp và công thức nấu</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="eyebrow">Day 06 · Data ingestion</p>
+      <h1>Hỏi sách và xem bằng chứng trên PDF</h1>
+      <nav class="tabs" aria-label="Mục demo">
+        <button type="button" id="tab-ask" class="active" aria-selected="true">Hỏi đáp</button>
+        <button type="button" id="tab-benchmark" aria-selected="false">Benchmark</button>
+      </nav>
+    </div>
+    <label class="strategy" id="strategy-wrap">
+      Chiến lược
+      <select id="strategy">
+        <option value="A" selected>A · cửa sổ 500 ký tự</option>
+        <option value="B">B · theo đoạn</option>
+        <option value="C">C · theo đoạn + lọc mục</option>
+      </select>
+    </label>
+  </header>
+  <main id="ask-view">
+    <section class="chat" aria-label="Hỏi đáp">
+      <div id="messages" class="messages"></div>
+      <div class="suggestions">
+        <button type="button" data-question="Tác giả tự giới thiệu tên mình là gì?">Tên tác giả</button>
+        <button type="button" data-question="Cuốn sách được đặt tên là gì?">Tên sách</button>
+        <button type="button" data-question="Perceptron do ai phát minh và vào năm nào?">Perceptron</button>
+        <button type="button" data-question="Vì sao không được dùng test set để chọn hyperparameter, và tập nào được dùng thay vào đó?">Test set</button>
+      </div>
+      <form id="ask-form">
+        <textarea id="question" rows="3" placeholder="Hỏi về nội dung sách..." required></textarea>
+        <button type="submit" id="send">Hỏi</button>
+      </form>
+    </section>
+    <section class="reader" aria-label="PDF và bằng chứng">
+      <div class="reader-bar">
+        <button type="button" id="prev-page">Trang trước</button>
+        <span id="page-label">Trang 1</span>
+        <button type="button" id="next-page">Trang sau</button>
+        <span id="evidence-label" class="evidence-label">Chưa có bằng chứng</span>
+      </div>
+      <div id="stage" class="stage">
+        <canvas id="pdf-canvas"></canvas>
+        <div id="highlight-layer"></div>
+      </div>
+    </section>
+  </main>
+  <section id="benchmark-view" class="benchmark" hidden>
+    <div id="benchmark-root">Đang tải chỉ số...</div>
+  </section>
+  <script src="/static/vendor/pdf.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
